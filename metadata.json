@@ -1,0 +1,25 @@
+{
+  "author": "Cyrille Ducloy",
+  "types": [
+
+  ],
+  "project_page": "https://github.com/cyl13/puppet-nrpe",
+  "source": "UNKNOWN",
+  "version": "0.0.1",
+  "summary": "NRPE installation & management",
+  "license": "Apache License, Version 2.0",
+  "dependencies": [
+    {
+      "version_requirement": ">= 3.2.0",
+      "name": "puppetlabs/stdlib"
+    },
+  ],
+  "name": "cyl13-nrpe",
+  "checksums": {
+    "manifests/init.pp": "f0953216ab95775c967bfe02870facd1",
+    "templates/nrpe.cfg.erb": "ca475b37cf2d160118a9108b9e29b0ce",
+    "Modulefile": "51e2e818bd627d7f6cd83360a4f4ac60",
+    "README.md": "4597a26a56d63a2a3a03a168ad5550cf"
+  },
+  "description": "NRPE installation & management module for RedHat/CentOS/Ubuntu Linux"
+}
