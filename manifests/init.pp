@@ -63,8 +63,8 @@ class nrpe (
   case $::operatingsystem {
     centos, redhat: {
       $service      = 'nrpe'
-      $main_package = 'nagios-nrpe'
-      $packages     = [ 'nagios-nrpe', 'nagios-plugins-users' ]
+      $main_package = 'nrpe'
+      $packages     = [ 'nrpe', 'nagios-plugins-all' ]
 
       # set the lib path
       if $::architecture == 'x86_64' {
@@ -99,7 +99,6 @@ class nrpe (
   if $::operatingsystem =~ /(?i:RedHat|CentOS|Amazon)/ {
     package { $packages:
       ensure  => installed,
-      require => Class['rpmforge'],
     }
   }
   else {

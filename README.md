@@ -1,10 +1,9 @@
 # puppet-nagios-nrpe
 
-This module automates the installation/management of the NRPE agent for Nagios/Opsview.
+This module automates the installation/management of the NRPE agent for Nagios.
 
 Tested to work on 32-bit/64-bit:
 
-  * Amazon AWS Linux
   * CentOS 6.x
   * Ubuntu 12.04
 
@@ -13,7 +12,6 @@ Tested to work on 32-bit/64-bit:
   * `ensure`:          optional, running or stopped, default=running
   * `enable`:          optional, boolean, default=true
   * `dont_blame_nrpe`: optional, boolean, default=false (dont_blame_nrpe=0), toggle the dont_blame_nrpe config to enable/disable argument passing to check commands
-  * `opsview_use`:     optional, boolean, default=false, define basic check commands with arguments enabled, you have to set `dont_blame_nrpe=true` to make this work
   * `service_check_command`: optional, default={}, a hash containing the additional command definitions e.g. { 'command_name' => '/path/to/it ARG' }
 
 ## Usage
@@ -56,13 +54,10 @@ If you use Opsview, you might want to enable argument passing and some default c
       ensure                => running,
       enable                => true,
       dont_blame_nrpe       => true,
-      opsview_use           => true,
       service_check_command => { 
         'check_mem'  => '/usr/local/nagios/plugins/check_mem 40 60',
       }
     }
-
-### `opsview_use => true`
 
 This will enable the following check commands in `/etc/nagios/nrpe.cfg`:
 
@@ -74,6 +69,3 @@ This will enable the following check commands in `/etc/nagios/nrpe.cfg`:
 
 Note: You have to set `dont_blame_nrpe => true` for this to work properly.
 
-## Dependencies
-
-Requires the [lboynton-rpmforge](https://github.com/lboynton/puppet-rpmforge) module for RHEL based distributions.
